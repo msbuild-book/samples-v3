@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Demo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="PrintInfo"
+             Runtime="CLR2"
+             AssemblyFile="$(MSBuildThisFileDirectory)\BuildOutput\Samples.Ch01.v2.dll"/>
+
+  <UsingTask TaskName="PrintInfo"
+             Runtime="CLR4"
+             AssemblyFile="$(MSBuildThisFileDirectory)\BuildOutput\Samples.Ch01.v4.dll"/>
+
+  <UsingTask TaskName="PrintInfo"
+             Architecture="x86"
+             AssemblyFile="$(MSBuildThisFileDirectory)\BuildOutput\Samples.Ch01.x86.dll"/>
+
+  <UsingTask TaskName="PrintInfo"
+             Architecture="x64"
+             AssemblyFile="$(MSBuildThisFileDirectory)\BuildOutput\Samples.Ch01.x64.dll"/>
+  
+  <Target Name="Demo">
+    <!-- This will demonstrate how we can pick the correct version of PrintInfo -->
+    <PrintInfo MSBuildRuntime="CLR2" />
+    <PrintInfo MSBuildRuntime="CLR4" />
+
+    <PrintInfo MSBuildArchitecture="x86"/>
+    <PrintInfo MSBuildArchitecture="x64"/>
+  </Target>
+</Project>
