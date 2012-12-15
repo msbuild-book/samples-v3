@@ -19,7 +19,7 @@ Before running this sample make sure that you prepare the dependencies with:
              AssemblyFile="$(MSBuildThisFileDirectory)\BuildOutput\Samples.Ch01.x86.dll"/>
 
   <UsingTask TaskName="PrintInfo"
-             Architecture="x64"
+             Architecture="x86"
              AssemblyFile="$(MSBuildThisFileDirectory)\BuildOutput\Samples.Ch01.x64.dll"/>
   
   <Target Name="Demo">

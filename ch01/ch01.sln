@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjFiles", "ProjFiles", "{
 	ProjectSection(SolutionItems) = preProject
 		build.proj = build.proj
 		oop-01.proj = oop-01.proj
+		tasks-02.proj = tasks-02.proj
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Ch01.x86", "Samples.Ch01.x86\Samples.Ch01.x86.csproj", "{33884338-20BA-4F1B-B1A4-CE54743F4ACC}"
