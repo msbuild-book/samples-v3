@@ -4,6 +4,7 @@
     <OutputPath Condition=" '$(OutputPath)'=='' ">$(MSBuildProjectDirectory)\BuildOutput\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectsToBuild Include="Samples.Ch01\Samples.Ch01.csproj"/>
     <ProjectsToBuild Include="Samples.Ch01.v2\Samples.Ch01.v2.csproj"/>
     <ProjectsToBuild Include="Samples.Ch01.v4\Samples.Ch01.v4.csproj"/>
     <ProjectsToBuild Include="Samples.Ch01.x86\Samples.Ch01.x86.csproj"/>

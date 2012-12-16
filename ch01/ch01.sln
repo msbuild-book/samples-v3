@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Ch01.v4", "Samples.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjFiles", "ProjFiles", "{1333E871-2F23-41C1-BF31-1B2397FFDC7D}"
 	ProjectSection(SolutionItems) = preProject
-		build.proj = build.proj
+		ch01.proj = ch01.proj
+		print-info-01.prj = print-info-01.prj
+		print-info-02.prj = print-info-02.prj
 		tasks-01.proj = tasks-01.proj
 		tasks-02.proj = tasks-02.proj
 	EndProjectSection
@@ -15,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Ch01.x86", "Samples.Ch01.x86\Samples.Ch01.x86.csproj", "{33884338-20BA-4F1B-B1A4-CE54743F4ACC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Ch01.x64", "Samples.Ch01.x64\Samples.Ch01.x64.csproj", "{FC12497B-E43E-4FB4-BF8D-86B3110E1A2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples.Ch01", "Samples.Ch01\Samples.Ch01.csproj", "{B22EAAC1-F283-464C-A545-86DB9CAAC841}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,14 @@ Global
 		{FC12497B-E43E-4FB4-BF8D-86B3110E1A2B}.Release|Any CPU.ActiveCfg = Release|x64
 		{FC12497B-E43E-4FB4-BF8D-86B3110E1A2B}.Release|Mixed Platforms.ActiveCfg = Release|x64
 		{FC12497B-E43E-4FB4-BF8D-86B3110E1A2B}.Release|Mixed Platforms.Build.0 = Release|x64
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B22EAAC1-F283-464C-A545-86DB9CAAC841}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
