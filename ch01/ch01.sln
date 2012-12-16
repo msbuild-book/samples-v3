@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjFiles", "ProjFiles", "{
 		ch01.proj = ch01.proj
 		print-info-01.prj = print-info-01.prj
 		print-info-02.prj = print-info-02.prj
+		print-info-03.prj = print-info-03.prj
 		tasks-01.proj = tasks-01.proj
 		tasks-02.proj = tasks-02.proj
 	EndProjectSection
