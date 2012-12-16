@@ -8,9 +8,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjFiles", "ProjFiles", "{1333E871-2F23-41C1-BF31-1B2397FFDC7D}"
 	ProjectSection(SolutionItems) = preProject
 		ch01.proj = ch01.proj
-		print-info-01.prj = print-info-01.prj
-		print-info-02.prj = print-info-02.prj
-		print-info-03.prj = print-info-03.prj
+		print-info-01.proj = print-info-01.proj
+		print-info-02.proj = print-info-02.proj
+		print-info-03-v2.proj = print-info-03-v2.proj
+		print-info-03-v4.proj = print-info-03-v4.proj
+		say-hello-01.proj = say-hello-01.proj
+		say-hello-02.proj = say-hello-02.proj
 		tasks-01.proj = tasks-01.proj
 		tasks-02.proj = tasks-02.proj
 	EndProjectSection

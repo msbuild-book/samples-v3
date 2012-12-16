@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+This file is very similar to say-hello-01.proj.
+The only difference is the order that each UsingTask is declared.
+
+Before running this sample make sure that you prepare the dependencies with:
+  msbuild ch01.proj
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Demo"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="SayHello"
+   Runtime="CLR4"
+   AssemblyFile="$(MSBuildThisFileDirectory)BuildOutput\Samples.Ch01.v4.dll"/>
+
+  <UsingTask TaskName="SayHello"
+  Runtime="CLR2"
+  AssemblyFile="$(MSBuildThisFileDirectory)BuildOutput\Samples.Ch01.v2.dll"/>
+
+  <Target Name="Demo">
+    <SayHello MSBuildRuntime="CLR2"/>
+    <SayHello MSBuildRuntime="CLR4"/>
+
+    <SayHello />
+  </Target>
+</Project>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Before running this sample make sure that you prepare the dependencies with:
+  msbuild ch01.proj
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Demo"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="PrintInfo"
+    Runtime="CLR4"
+    AssemblyFile="$(MSBuildThisFileDirectory)\BuildOutput\Samples.Ch01.v4.dll"/>
+  
+  <Target Name="Demo">
+    <PrintInfo />   
+  </Target>
+</Project>

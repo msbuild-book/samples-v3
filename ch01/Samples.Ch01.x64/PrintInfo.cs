@@ -21,7 +21,6 @@
 
 
         public override bool Execute() {
-
             this.Log.LogMessage(".NET CLR version: {0}\tBitness: {1}", this.ClrVersion, this.Bitness);
             return true;
         }
