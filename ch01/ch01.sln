@@ -8,7 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjFiles", "ProjFiles", "{1333E871-2F23-41C1-BF31-1B2397FFDC7D}"
 	ProjectSection(SolutionItems) = preProject
 		build.proj = build.proj
-		oop-01.proj = oop-01.proj
+		tasks-01.proj = tasks-01.proj
 		tasks-02.proj = tasks-02.proj
 	EndProjectSection
 EndProject
