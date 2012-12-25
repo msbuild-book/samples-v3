@@ -53,6 +53,7 @@
   <ItemGroup>
     <None Include="app.config">
       <TransformOnBuild>true</TransformOnBuild>
+      <SubType>Designer</SubType>
     </None>
     <None Include="app.Debug.config">
       <DependentUpon>app.config</DependentUpon>
