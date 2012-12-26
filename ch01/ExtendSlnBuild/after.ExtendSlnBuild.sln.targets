@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="GenerateCode" BeforeTargets="Build;Rebuild">
+    <Message Text="***********************************" Importance="high"/>
+    <Message Text="            Generate Code          " Importance="high"/>
+    <Message Text="***********************************" Importance="high"/>
+  </Target>
+
+  <Target Name="AnalyzeCode" AfterTargets="Build;Rebuild">
+    <Message Text="***********************************" Importance="high"/>
+    <Message Text="            Analyze Code           " Importance="high"/>
+    <Message Text="***********************************" Importance="high"/>
+  </Target>
+
+
+</Project>
