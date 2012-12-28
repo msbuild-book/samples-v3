@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Demo" 
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <ProjectsToBuild Include="Samples.Ch01\Samples.Ch01.csproj"/>
+    <ProjectsToBuild Include="Samples.Ch01.v2\Samples.Ch01.v2.csproj"/>
+    <ProjectsToBuild Include="Samples.Ch01.v4\Samples.Ch01.v4.csproj"/>
+  </ItemGroup>
+
+  <Target Name="Demo">
+    <MSBuild Projects="@(ProjectsToBuild)"
+             Properties="CustomAfterMicrosoftCommonTargets=$(MSBuildThisFileFullPath)">
+      <Output ItemName="ProjOutputs" TaskParameter="TargetOutputs"/>
+    </MSBuild>
+
+    <Message Text="ProjOutputs: @(ProjOutputs)"/>
+  </Target>
+
+
+  <!-- This section is the portion which is required to be imported -->
+  <Target Name="RunCustomTool" Outputs="@(Compile)">
+    <Message Text="*** Running custom tool on  the following source files. ***"
+             Importance="high"/>
+
+    <Message Text="%(Compile.FullPath)"/>
+  </Target>
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      RunCustomTool;
+      $(BuildDependsOn);
+    </BuildDependsOn>
+  </PropertyGroup>
+
+</Project>

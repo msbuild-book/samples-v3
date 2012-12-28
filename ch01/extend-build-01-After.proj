@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+This sample show some different ways that a task can be invoked.
+
+Before running this sample make sure that you prepare the dependencies with:
+  msbuild ch01.proj
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="RunCustomTool" Outputs="@(Compile)">
+    <Message Text="*** Running custom tool on  the following source files. ***" 
+             Importance="high"/>
+    
+    <Message Text="%(Compile.FullPath)"/>
+  </Target>
+
+  <PropertyGroup>
+    <BuildDependsOn>
+      RunCustomTool;
+      $(BuildDependsOn);
+    </BuildDependsOn>
+  </PropertyGroup>
+  
+</Project>
