@@ -3,6 +3,7 @@
 [Oo]bj/
 msbuild*.log
 BuildOutput/
+PublishOutput/
 
 # mstest test results
 TestResults
