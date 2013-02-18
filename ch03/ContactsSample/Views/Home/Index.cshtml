@@ -1,0 +1,37 @@
+﻿@model System.Collections.Generic.List<ContactsSample.Contact>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contacts</h2>
+<table>
+    <thead>
+        <tr>            
+            <td>First name</td>
+            <td>Last name</td>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var contact in Model) {
+        <tr>
+            <td>@contact.FirstName</td>
+            <td>@contact.LastName</td>
+        </tr>    
+    }
+    </tbody>
+</table>
+
+<h3>Add a new contact</h3>
+<form action="/Home/Insert">
+    <fieldset>
+        <ul>
+            <li>First name</li>
+            <li><input name="FirstName" type="text" /></li>
+            <li>Last name</li>
+            <li><input name="LastName" type="text" /></li>
+        </ul>
+        <input type="submit" value="Add contact" />
+    </fieldset>
+    
+</form>
