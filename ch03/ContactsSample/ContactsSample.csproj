@@ -128,28 +128,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Contact.cs">
-      <DependentUpon>ContactsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ContactsModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ContactsModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ContactsModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ContactsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ContactsModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ContactsModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,23 +142,8 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <EntityDeploy Include="ContactsModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ContactsModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ContactsModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ContactsModel.edmx</DependentUpon>
-      <LastGenOutput>ContactsModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ContactsModel.edmx.diagram">
-      <DependentUpon>ContactsModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="ContactsModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ContactsModel.edmx</DependentUpon>
-      <LastGenOutput>ContactsModel.cs</LastGenOutput>
-    </Content>
+    <None Include="Properties\PublishProfiles\sayedwdb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sayedwdb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -201,9 +169,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
