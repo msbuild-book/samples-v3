@@ -1,0 +1,26 @@
+﻿@model System.Collections.Generic.List<ContactsEf.Contact>
+
+@{
+    ViewBag.Title = "All contacts";
+}
+
+<h2>All contacts</h2>
+<ul>
+    @foreach (var contact in Model) {
+        <li>@contact.FirstName @contact.LastName</li>
+    }
+</ul>
+<h2>Add a contact</h2>
+<form action="/home/addContact">
+    <fieldset>
+        <ul>
+            <li>First name</li>
+            <li><input type="text" name="FirstName" /></li>
+
+            <li>Last name</li>
+            <li><input type="text" name="LastName" /></li>
+        </ul>
+        <input type="submit" value="Add contact" />
+    </fieldset>
+    
+</form>

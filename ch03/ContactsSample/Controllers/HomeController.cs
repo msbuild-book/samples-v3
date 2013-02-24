@@ -39,6 +39,21 @@
             return RedirectToAction("Index");
         }
 
+        public ActionResult Settings() {
+            System.Collections.Generic.IDictionary<string, string> settings = new Dictionary<string, string>();
+
+            foreach (string key in ConfigurationManager.AppSettings.AllKeys) {
+                settings.Add(key, ConfigurationManager.AppSettings[key]);
+            }
+
+            return View(settings);
+        }
+
+
+
+
+
+
         private List<Contact> GetContacts() {
             List<Contact> contacts = new List<Contact>();
 
