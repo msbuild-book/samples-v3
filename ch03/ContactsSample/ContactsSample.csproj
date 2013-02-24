@@ -142,8 +142,10 @@
     <Content Include="_Package\Microsoft.Web.XmlTransform.dll" />
     <Content Include="_Package\SlowCheetah.Xdt.dll" />
     <Content Include="ContactsSample.wpp.targets" />
-    <None Include="Properties\PublishProfiles\sayedwdb - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\sayedwdb - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\sample.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\ToLocal.pubxml" />
     <None Include="Properties\PublishProfiles\ToPkg.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />

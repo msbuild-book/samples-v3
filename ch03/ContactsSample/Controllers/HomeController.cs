@@ -49,11 +49,6 @@
             return View(settings);
         }
 
-
-
-
-
-
         private List<Contact> GetContacts() {
             List<Contact> contacts = new List<Contact>();
 

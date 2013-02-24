@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsSample", "ContactsS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsEf", "ContactsEf\ContactsEf.csproj", "{6E070787-2ED9-40BC-894C-E5FB8D3E3F51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformSample", "TransformSample\TransformSample.csproj", "{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6E070787-2ED9-40BC-894C-E5FB8D3E3F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E070787-2ED9-40BC-894C-E5FB8D3E3F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E070787-2ED9-40BC-894C-E5FB8D3E3F51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
