@@ -1,0 +1,122 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Don't make this _Deploy becuase it conflicts with default IIS app path name -->
+    <_DeployFolderName>_Deploy_</_DeployFolderName>
+    <SedodreamInstallFolder Condition=" '$(SedodreamInstallFolder)'=='' ">$(MSBuildProjectDirectory)\_Package\</SedodreamInstallFolder>
+    <SedodreamPublishProjPath Condition=" '$(SedodreamPublishProjPath)'=='' ">$(SedodreamInstallFolder)pw.TransformConfig.proj</SedodreamPublishProjPath>
+    <SlowCheetahXdtAssemblyPath Condition=" '$(SlowCheetahXdtAssemblyPath)'=='' ">$(MSBuildThisFileDirectory)Microsoft.Web.XmlTransform.dll</SlowCheetahXdtAssemblyPath>
+    <SlowCheetahTransformXmlTaskPath Condition=" '$(SlowCheetahTransformXmlTaskPath)'=='' ">$(MSBuildThisFileDirectory)SlowCheetah.Xdt.dll</SlowCheetahTransformXmlTaskPath>
+  </PropertyGroup>
+
+  <Target Name="CopyPublishPs1ToPackageFolder" AfterTargets="Package" DependsOnTargets="PackageUsingManifest">
+    <PropertyGroup>
+      <_PublishPs1>$(SedodreamInstallFolder)Publish-Interactive.ps1</_PublishPs1>
+    </PropertyGroup>
+
+    <Copy SourceFiles="$(_PublishPs1)" DestinationFiles="$(DefaultPackageOutputDir)\Publish-Interactive.ps1"/>
+
+    <!--  -->
+    <ItemGroup>
+      <_PkgLoc Include="$(DesktopBuildPackageLocation)" Condition=" '$(DesktopBuildPackageLocation)'!='' "/>
+      <_PkgLoc Include="$(PackageDestinationRoot)" Condition=" '@(_PkgLoc)'=='' " />
+    </ItemGroup>
+
+    <Copy SourceFiles="$(_PublishPs1)"
+          DestinationFiles="@(_PkgLoc->'%(rootdir)%(directory)Publish-Interactive.ps1')"
+          Condition=" '@(_PkgLoc)' != '' "/>
+  </Target>
+
+  <PropertyGroup>
+    <CopyAllFilesToSingleFolderForPackageDependsOn>
+      IncludWebConfigTransformsForPublishing;
+      $(CopyAllFilesToSingleFolderForPackageDependsOn);
+    </CopyAllFilesToSingleFolderForPackageDependsOn>
+  </PropertyGroup>
+
+  <Target Name="IncludWebConfigTransformsForPublishing" AfterTargets="CopyPipelineFiles" BeforeTargets="CopyAllFilesToSingleFolderForMsdeploy">
+    <ItemGroup>
+      <_WCTransforms Include="$(MSBuildProjectDirectory)\web.config;$(MSBuildProjectDirectory)\web.*.config"/>
+
+      <_SlowCheetahTasksItem Remove="@(_SlowCheetahTasksItem)"/>
+      <_SlowCheetahTasksItem Include="$(SlowCheetahTransformXmlTaskPath)"/>
+
+      <_SlowCheetahXdtAssemblyPathItem Remove="@(_SlowCheetahXdtAssemblyPathItem)"/>
+      <_SlowCheetahXdtAssemblyPathItem Include="$(SlowCheetahXdtAssemblyPath)"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+      <_SlowCheetahFilename>@(_SlowCheetahTasksItem->'%(Filename)%(Extension)')</_SlowCheetahFilename>
+      <_ScXdtAssembyFilename>@(_SlowCheetahXdtAssemblyPathItem->'%(Filename)%(Extension)')</_ScXdtAssembyFilename>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <FilesForPackagingFromProject  Include="%(_WCTransforms.Identity)">
+        <DestinationRelativePath>$(_DeployFolderName)\%(RecursiveDir)t.%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+
+      <!-- Add the assemlby which has the TrasnfromXml task-->
+      <FilesForPackagingFromProject  Include="$(SlowCheetahTransformXmlTaskPath)">
+        <DestinationRelativePath>$(_DeployFolderName)\$(_SlowCheetahFilename)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+      <FilesForPackagingFromProject  Include="$(SlowCheetahXdtAssemblyPath)">
+        <DestinationRelativePath>$(_DeployFolderName)\$(_ScXdtAssembyFilename)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+
+
+      <!-- Add the MSBuild file into the package as well -->
+      <FilesForPackagingFromProject Include="$(SedodreamPublishProjPath)">
+        <DestinationRelativePath>$(_DeployFolderName)\pw.TransformConfig.proj</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="AddSetParamToPackage" AfterTargets="GenerateSampleDeployScript">
+    <ItemGroup>
+      <_TmpItem Remove="@(_TmpItem)"/>
+      <_TmpItem Include="$(GenerateSampleParametersValueLocation)"/>
+    </ItemGroup>
+
+    <!-- Add the SetParameters.xml file -->
+    <ItemGroup>
+      <FilesForPackagingFromProject Include="@(_TmpItem)">
+        <DestinationRelativePath>$(_DeployFolderName)\%(_TmpItem.Filename)%(_TmpItem.Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+    </ItemGroup>
+  </Target>
+
+
+  <!--
+  Replace the long file path in the package with "website".
+  You can disable this by setting the property $(EnableAddReplaceToUpdatePacakgePath) to false.
+  -->
+  <PropertyGroup>
+    <PackagePath Condition=" '$(PackagePath)'=='' ">website</PackagePath>
+    <EnableAddReplaceToUpdatePacakgePath Condition=" '$(EnableAddReplaceToUpdatePacakgePath)'=='' ">true</EnableAddReplaceToUpdatePacakgePath>
+
+    <PackageDependsOn>
+      $(PackageDependsOn);
+      AddReplaceRuleForAppPath;
+    </PackageDependsOn>
+  </PropertyGroup>
+  <Target Name="AddReplaceRuleForAppPath" Condition=" '$(EnableAddReplaceToUpdatePacakgePath)'=='true' ">
+    <PropertyGroup>
+      <_PkgPathFull Condition=" '$(WPPAllFilesInSingleFolder)'!='' ">$([System.IO.Path]::GetFullPath($(WPPAllFilesInSingleFolder)))</_PkgPathFull>
+      <!-- $(WPPAllFilesInSingleFolder) is not available on VS2010 so fall back to $(_PackageTempDir) -->
+      <_PkgPathFull Condition=" '$(_PkgPathFull)' == '' ">$([System.IO.Path]::GetFullPath($(_PackageTempDir)))</_PkgPathFull>
+    </PropertyGroup>
+
+    <!-- escape the text into a regex -->
+    <EscapeTextForRegularExpressions Text="$(_PkgPathFull)">
+      <Output TaskParameter="Result" PropertyName="_PkgPathRegex" />
+    </EscapeTextForRegularExpressions>
+
+    <!-- add the replace rule to update the path -->
+    <ItemGroup>
+      <MsDeployReplaceRules Include="replaceFullPath">
+        <Match>$(_PkgPathRegex)</Match>
+        <Replace>$(PackagePath)</Replace>
+      </MsDeployReplaceRules>
+    </ItemGroup>
+  </Target>
+
+</Project>

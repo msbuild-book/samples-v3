@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="PackageWeb">
+    <SedodreamPackageFolder Condition=" '$(SedodreamPackageFolder)'=='' ">$(MSBuildProjectDirectory)\_Package\</SedodreamPackageFolder>
+  </PropertyGroup>
+  <Import Project="$(SedodreamPackageFolder)Sedodream.Package.targets" Label="PackageWeb" Condition="Exists('$(SedodreamPackageFolder)Sedodream.Package.targets')" />
+</Project>

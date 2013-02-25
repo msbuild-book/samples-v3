@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsEf", "ContactsEf\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformSample", "TransformSample\TransformSample.csproj", "{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PkgWebDemo", "PkgWebDemo\PkgWebDemo.csproj", "{88A9B254-D960-410A-9AAA-CCA34061BB24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBDBACE6-FE99-4D57-9A5C-855C76AFBFF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A9B254-D960-410A-9AAA-CCA34061BB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A9B254-D960-410A-9AAA-CCA34061BB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A9B254-D960-410A-9AAA-CCA34061BB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A9B254-D960-410A-9AAA-CCA34061BB24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
